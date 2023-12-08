@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: full-app-creation
+    backstage.io/kubernetes-id: full-app-creation
+  name: full-app-creation
+  namespace: full-app-creation
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: full-app-creation
+  type: ClusterIP

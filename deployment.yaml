@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: full-app-creation
+    backstage.io/kubernetes-id: full-app-creation
+  name: full-app-creation
+  namespace: full-app-creation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: full-app-creation
+  template:
+    metadata:
+      labels:
+        app: full-app-creation
+        backstage.io/kubernetes-id: full-app-creation
+    spec:
+      containers:
+        - name: main-app
+          image: app_code_image
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+              name: http

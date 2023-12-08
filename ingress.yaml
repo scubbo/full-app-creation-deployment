@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: full-app-creation
+  namespace: full-app-creation
+  labels:
+    app: full-app-creation
+    backstage.io/kubernetes-id: full-app-creation
+spec:
+  rules:
+    - host: full-app-creation-7f000001.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: full-app-creation
+                port:
+                  number: 80
